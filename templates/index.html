@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trendyol</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="container mt-3">
+    <nav aria-label="breadcrumb" class="breadcrumbs">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('search', query=product.category) }}">{{ product.category }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ product.description }}</li>
+        </ol>
+    </nav>
+    <div class="row">
+        <div class="col-md-6">
+            <img class="product-image product-detail-image" src="{{ url_for('static', filename='images/' + product.image_file) }}" class="product-image" alt="{{ product.description }}">
+        </div>
+        <div class="col-md-6">
+            <h2>{{ product.description }}</h2>
+            <p class="price">${{ product.price }}</p>
+            <p><strong>Category:</strong> {{ product.category }}</p>
+            <p><strong>Product No:</strong> {{ product.product_no }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</body>
+</html>

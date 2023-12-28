@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trendyol</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-3">
+    <div class="row mb-4 align-items-center">
+        <div class="col-auto">
+            <a href="{{ url_for('index') }}" class="btn btn-primary">Home</a>
+        </div>
+        <div class="col">
+            <form action="{{ url_for('search') }}" method="get" class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" name="query" placeholder="Search products..." aria-label="Search" value="{{ request.args.get('query', '') }}">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <h2>Search Results</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        {% for product in products %}
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card h-100">
+                <img class="product-image index-search-image" src="{{ url_for('static', filename='images/' + product.image_file) }}" alt="{{ product.description }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.description }}</h5>
+                    <p class="card-text">${{ product.price }}</p>
+                </div>
+                <div class="card-footer">
+                    <a href="{{ url_for('product', product_id=product.id) }}" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>

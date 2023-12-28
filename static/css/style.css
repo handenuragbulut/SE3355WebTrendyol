@@ -1,0 +1,69 @@
+.product-image {
+width: 100%;
+height: 200px;
+}
+
+.index-search-image {
+    object-fit: contain;
+}
+
+.product-detail-image {
+    height: auto;
+    width: 90%;
+    object-fit: cover;
+}
+
+.search-box {
+max-width: 800px;
+margin-left: auto;
+}
+
+.header-row {
+align-items: center;
+}
+
+.card {
+	
+border-color: #3C2CC9;
+height: 450px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+.card-img-top {
+height: 250px;
+object-fit: contain;
+width: 100%;
+}
+
+.card-body {
+flex-grow: 1;
+}
+
+.breadcrumbs {
+    background-color: #f8f9fa;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+}
+h1{
+	
+    padding: 10px;
+    background-color: #FF6F00;
+    color: white; /* Yazı rengini beyaz yapabilirsiniz */
+    display: inline;
+
+}
+.btn-outline-success{
+    color: #4019FF;
+    border-color: #4019FF;
+    border: 2px solid #4019FF;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #0DC900;
+    border-color: #0DC900;
+}
+
+
